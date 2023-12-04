@@ -12,14 +12,14 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.amphibians.AmphibianApplication
 import com.example.amphibians.data.AmphibiansRepository
-import com.example.amphibians.model.AmphibiansPhoto
+import com.example.amphibians.model.Amphibian
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
 
 
 sealed interface AmphibiansUiState {
-    data class Success(val photo: List<AmphibiansPhoto>) : AmphibiansUiState
+    data class Success(val photo: List<Amphibian>) : AmphibiansUiState
     object Error : AmphibiansUiState
     object Loading : AmphibiansUiState
 }

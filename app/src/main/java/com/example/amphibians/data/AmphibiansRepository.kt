@@ -1,19 +1,19 @@
 package com.example.amphibians.data
 
-import com.example.amphibians.model.AmphibiansPhoto
+import com.example.amphibians.model.Amphibian
 import com.example.amphibians.network.AmphibiansApiService
 
 interface AmphibiansRepository {
-    /** Fetches list of MarsPhoto from marsApi */
-    suspend fun getAmphibians(): List<AmphibiansPhoto>
+    /** Retrieves list of amphibians from underlying data source */
+    suspend fun getAmphibians(): List<Amphibian>
 }
 
 /**
- * Network Implementation of Repository that fetch mars photos list from marsApi.
+ * Network Implementation of repository that retrieves amphibian data from underlying data source.
  */
-class NetworkAmphibiansRepository(
+class DefaultAmphibiansRepository(
     private val amphibiansApiService: AmphibiansApiService
 ) : AmphibiansRepository {
-    /** Fetches list of MarsPhoto from marsApi*/
-    override suspend fun getAmphibians(): List<AmphibiansPhoto> = amphibiansApiService.getPhotos()
+    /** Retrieves list of amphibians from underlying data source */
+    override suspend fun getAmphibians(): List<Amphibian> = amphibiansApiService.getAmphibians()
 }
